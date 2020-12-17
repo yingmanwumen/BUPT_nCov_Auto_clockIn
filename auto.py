@@ -28,11 +28,6 @@ class Automatic(object):
 		"""
 		Authorize
 		"""
-		# username or password is NULL, exit directly
-		if (username == "" or password == ""):
-			print("username or password is NULL!")
-			os._exit()
-
 		# send POST request
 		data = {
 			"username": username,

@@ -11,7 +11,7 @@ class Automatic(object):
 	"""
 	自动填报脚本
 	"""
-	def __init__(self, username="", password=""):
+	def __init__(self, username=[], password=[]):
 		"""
 		Init the object and do some work
 		"""
@@ -24,23 +24,23 @@ class Automatic(object):
 		self.main()
 
 
-	def authorize(self):
+	def authorize(self, username, password):
 		"""
 		Authorize
 		"""
 		# username or password is NULL, exit directly
-		if (self.username == "" or self.password == ""):
+		if (username == "" or password == ""):
 			print("username or password is NULL!")
 			os._exit()
 
 		# send POST request
 		data = {
-			"username": self.username,
-			"password": self.password
+			"username": username,
+			"password": password
 		}
 
 		try:
-			print("Start Authorize for %s..." % self.username)
+			print("Start Authorize for %s..." % username)
 			self.cookies = requests.post(url=LOGIN_URL, data=data).cookies
 
 		except Exception as e:
@@ -63,9 +63,9 @@ class Automatic(object):
 		data["province"] = PROVINCE
 
 		try:
-			print("Form:")
-			for item in data:
-				print("\t" + item + ":", data[item])
+			# print("Form:")
+			# for item in data:
+			# 	print("\t" + item + ":", data[item])
 
 			print("Cookies:")
 			for item in self.cookies:
@@ -90,11 +90,12 @@ class Automatic(object):
 		print("==========================")
 		print("Date: %4d-%02d-%02d" % (self.today.year,
 			self.today.month, self.today.day))
-		print("--------------------------")
 
-		self.authorize()  # Get cookies
-		res = self.post()
-		print(res['m'] + "\n")
+		for i in range(len(self.username)):
+			print("--------------------------")
+			self.authorize(self.username[i], self.password[i])  # get cookies
+			res = self.post()
+			print(res['m'] + "\n")
 
 
 

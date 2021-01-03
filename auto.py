@@ -3,20 +3,20 @@ import time
 import datetime
 import json
 from config import *
-from conf import USERNAME, PASSWORD
+from conf import USERS
 
 
 class Automatic(object):
 	"""
 	自动填报脚本
 	"""
-	def __init__(self, username=[], password=[]):
+	def __init__(self, users=[]):
 		"""
 		Init the object and do some work
 		"""
 		self.cookies = None
-		self.username = username
-		self.password = password
+		self.user = {}
+		self.users = users
 		self.today = datetime.date.today()
 		self.date = "%4d%02d%02d" % (self.today.year, self.today.month,
 			self.today.day)
@@ -52,15 +52,12 @@ class Automatic(object):
 		data = DATA
 		data["created"] = round(time.time())
 		data["date"] = self.date
-		data["area"] = AREA
-		data["city"] = CITY
-		data["province"] = PROVINCE
+		data["area"] = self.user["area"]
+		data["city"] = self.user["city"]
+		data["province"] = self.user["province"]
+		data["sfzx"] = self.user["sfzx"]
 
 		try:
-			# print("Form:")
-			# for item in data:
-			# 	print("\t" + item + ":", data[item])
-
 			print("Cookies:")
 			for item in self.cookies:
 				print("\t" + item.name + "=",item.value)
@@ -85,13 +82,14 @@ class Automatic(object):
 		print("Date: %4d-%02d-%02d" % (self.today.year,
 			self.today.month, self.today.day))
 
-		for i in range(len(self.username)):
+		for user in self.users:
 			print("--------------------------")
-			self.authorize(self.username[i], self.password[i])  # get cookies
+			self.user = user
+			self.authorize(user["username"], user["password"])
 			res = self.post()
 			print(res['m'] + "\n")
 
 
 
 if __name__ == '__main__':
-	Automatic(username=USERNAME, password=PASSWORD)
+	Automatic(users=USERS)

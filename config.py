@@ -1,9 +1,6 @@
 LOGIN_URL = "https://app.bupt.edu.cn/uc/wap/login/check"  # 授权URL
 FORM_URL = "https://app.bupt.edu.cn/ncov/wap/default/save"  # 填报URL
 
-AREA = "北京市 海淀区"
-PROVINCE = "北京市"
-CITY = "北京市"
 
 DATA = {
 	"ismoved": "0",  # 当前地点是否与上次在同一城市
@@ -28,7 +25,7 @@ DATA = {
 	"sfcxzysx": "0",  # 是否有任何与疫情相关的， 值得注意的情况
 	"qksm": "",  # 情况说明
 	"remark": "", # 其他信息
-	"address": "北京市海淀区北太平庄街道北京邮电大学北京邮电大学海淀校区",
+	# "address": "北京市海淀区北太平庄街道北京邮电大学北京邮电大学海淀校区",
 	"area": "北京市  海淀区",
 	"province": "北京市",
 	"city": "北京市",

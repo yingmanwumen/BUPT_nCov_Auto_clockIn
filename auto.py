@@ -3,20 +3,18 @@ import time
 import datetime
 import json
 from config import *
-from conf import USERS
 
 
 class Automatic(object):
 	"""
 	自动填报脚本
 	"""
-	def __init__(self, users=[]):
+	def __init__(self, user=[]):
 		"""
 		Init the object and do some work
 		"""
 		self.cookies = None
-		self.user = {}
-		self.users = users
+		self.user = user
 		self.today = datetime.date.today()
 		self.date = "%4d%02d%02d" % (self.today.year, self.today.month,
 			self.today.day)
@@ -82,14 +80,21 @@ class Automatic(object):
 		print("Date: %4d-%02d-%02d" % (self.today.year,
 			self.today.month, self.today.day))
 
-		for user in self.users:
-			print("--------------------------")
-			self.user = user
-			self.authorize(user["username"], user["password"])
-			res = self.post()
-			print(res['m'] + "\n")
+		user = self.user
+		print("--------------------------")
+		self.authorize(user["username"], user["password"])
+		res = self.post()
+		print(res['m'] + "\n")
 
 
 
 if __name__ == '__main__':
-	Automatic(users=USERS)
+	user = {
+		"username" : ,
+		"password" : ,
+		"area" : ,
+		"province" :,
+		"city":,
+		"sfzx":
+	}
+	Automatic(user=user)

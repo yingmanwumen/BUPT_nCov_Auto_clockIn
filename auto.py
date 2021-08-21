@@ -90,11 +90,11 @@ class Automatic(object):
 
 if __name__ == '__main__':
 	user = {
-		"username" : ,
-		"password" : ,
-		"area" : ,
-		"province" :,
-		"city":,
-		"sfzx":
+		"username" : os.environ["USERNAME"],
+		"password" : os.environ["PASSWORD"],
+		"area" : os.environ["AREA"],
+		"province" : os.environ["PROVINCFE"],
+		"city" : os.environ["CITY"],
+		"sfzx" : os.environ["SFZX"]
 	}
 	Automatic(user=user)

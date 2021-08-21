@@ -28,5 +28,9 @@ jobs:
       env:
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
+        AREA: ${{ secrets.AREA }}
+        PROVINCE: ${{ secrets.PROVINCE }}
+        CITY: ${{ secrets.CITY }}
+        SFZX: ${{ secrets.SFZX }}
       run: python auto.py
 

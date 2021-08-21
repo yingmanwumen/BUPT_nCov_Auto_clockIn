@@ -22,6 +22,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install request
+        pip install time
+        pip install datetime
+        pip install json
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: 'signin'
       env:

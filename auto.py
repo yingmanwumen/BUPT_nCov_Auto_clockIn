@@ -94,7 +94,7 @@ if __name__ == '__main__':
 		"username" : os.environ["USERNAME"],
 		"password" : os.environ["PASSWORD"],
 		"area" : os.environ["AREA"],
-		"province" : os.environ["PROVINCFE"],
+		"province" : os.environ["PROVINCE"],
 		"city" : os.environ["CITY"],
 		"sfzx" : os.environ["SFZX"]
 	}

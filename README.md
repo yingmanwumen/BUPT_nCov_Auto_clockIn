@@ -1,5 +1,7 @@
 # 北邮每日填报自动化
 
+北邮 自动填报 疫情填报
+
 ## Modified
 1. 原来设置的时间是UTC时间的每日1:00 AM，即China Time的9:00 AM，但是因为近期Actions出现波动，导致很多人没打上卡，现在增加UTC时间的17:00(China Time次日1:00)
 2. 改进REAMME使用说明

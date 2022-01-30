@@ -63,14 +63,17 @@ class Automatic(object):
 
 			print("\nPost...")
 			res = requests.post(url=FORM_URL, data=data, cookies=self.cookies)
+			res = json.loads(res.text)
 
 		except Exception as e:
 			print("Error Happen when POST Msg:", e)
+			print("Res:", res)
+			print("Exit")
 			raise
 
 		else:
 			print("Successfully POSTed")
-			return json.loads(res.text)
+			return res
 
 
 	def main(self):

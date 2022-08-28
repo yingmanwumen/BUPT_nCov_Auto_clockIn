@@ -160,7 +160,7 @@ try:
 	# 填报
 	responce = session.post(url=FORM_URL, headers=headers, data=data)
 	logging.debug('Post %s, responce: %s', FORM_URL, responce)
-	logging.info('Responce: %s', responce.json())
+	logging.info('Responce: %s', responce)
 
 except Exception as e:
 	logging.error(e)

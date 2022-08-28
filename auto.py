@@ -16,7 +16,7 @@ LOGIN_URL = 'https://auth.bupt.edu.cn/authserver/login'
 FORM_URL = "https://app.bupt.edu.cn/ncov/wap/default/save"
 
 # 重要: CAS认证的跳转地址记录
-SERVICE = 'https://app.bupt.edu.cn/ncov/wap/default/save' #'https://app.bupt.edu.cn/a_bupt/api/sso/cas'#?redirect=https%3A%2F%2Fapp.bupt.edu.cn%2Fncov%2Fwap%2Fdefault%2Findex&from=wap'
+SERVICE = 'https://app.bupt.edu.cn/ncov/wap/default/login' #'https://app.bupt.edu.cn/a_bupt/api/sso/cas'#?redirect=https%3A%2F%2Fapp.bupt.edu.cn%2Fncov%2Fwap%2Fdefault%2Findex&from=wap'
 
 # 模拟浏览器信息
 USER_AGENT = 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0'

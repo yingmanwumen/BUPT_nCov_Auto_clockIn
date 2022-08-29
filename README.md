@@ -4,6 +4,8 @@
 
 ## Modified
 
+学校修改了CAS认证服务，导致脚本出现了一天左右的失效。在 [why724809024](https://github.com/why724809024) 同学的帮助下修复完成 [issue](https://github.com/yingmanwumen/BUPT_nCov_Auto_clockIn/issues/4)。 使用愉快~
+
 ***注意***：根据 [这里](https://docs.github.com/en/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)，github将会停用超过60天没有动的workflow（即使是自动脚本）。所以哪天打卡打不上了，记得过来点一下`run workflow`，这样就可以又60天不用打卡了。（我暂时还不知道要怎么避免）
 
 ## History

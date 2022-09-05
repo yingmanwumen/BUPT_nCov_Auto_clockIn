@@ -27,6 +27,7 @@ jobs:
         pip install pipreqs
         pipreqs .
         pip install -r requirements.txt
+        pip install pypushdeer
     - name: 'signin'
       env:
         USERNAME: ${{ secrets.USERNAME }}
@@ -35,5 +36,6 @@ jobs:
         PROVINCE: ${{ secrets.PROVINCE }}
         CITY: ${{ secrets.CITY }}
         SFZX: ${{ secrets.SFZX }}
+        PUSHDEER_KEY: ${{ secrets.PUSHDEER_KEY }}
       run: python auto.py
 

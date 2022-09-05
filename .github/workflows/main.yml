@@ -27,7 +27,6 @@ jobs:
         pip install pipreqs
         pipreqs .
         pip install -r requirements.txt
-        pip install pypushdeer
     - name: 'signin'
       env:
         USERNAME: ${{ secrets.USERNAME }}

@@ -120,11 +120,11 @@ try:
     # 发送请求，设置cookies
     headers = { "User-Agent": USER_AGENT }
     params = { "service": SERVICE }
-    responce = session.get(url=LOGIN_URL, headers=headers, params=params)
-    logging.debug('Get: %s %s', LOGIN_URL, responce)
+    response = session.get(url=LOGIN_URL, headers=headers, params=params)
+    logging.debug('Get: %s %s', LOGIN_URL, response)
 
     # 获取execution
-    html = etree.HTML(responce.content)
+    html = etree.HTML(response.content)
     execution = html.xpath(EXECUTION_XPATH)[0]
     logging.debug('execution: %s', execution)
 
@@ -163,18 +163,20 @@ try:
 
     # 填报
     response = session.post(url=FORM_URL, headers=headers, data=data)
+    msg = response.json()['m']
+
     logging.debug('Post %s, response: %s', FORM_URL, response)
-    logging.info('Response: %s', responce)
+    logging.info('Response: %s', response)
+    logging.info('Result: %s', msg)
 
-    pushdeer = PushDeer(pushkey=os.environ['PUSHDEER_KEY'])
-
-    res_msg = response.json()['m']
-    res_code = responce.status_code
-    if res_code / 100 != 2:
-        pushdeer.send_text('[BUPT_nCov] 自动填报失败')
-    else:
-        pushdeer.send_text('[BUPT_nCov] ' + res_msg)
-        logging.info('Result: %s', res_msg)
+    key=os.environ['PUSHDEER_KEY']
+    if len(key) != 0:
+        pushdeer = PushDeer(pushkey=key)
+        if response.status_code != 200 and response.status_code != 202:
+            pushdeer.send_text('[BUPT_nCov] 自动填报失败')
+        else:
+            pushdeer.send_text('[BUPT_nCov] ' + msg)
+        
 
     
 

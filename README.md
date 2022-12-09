@@ -2,6 +2,8 @@
 
 北邮 自动填报 疫情填报
 
+***打卡时代结束了***
+
 ## Modified
 
 学校修改了CAS认证服务，导致脚本出现了一天左右的失效。在 [why724809024](https://github.com/why724809024) 同学的帮助下修复完成 [issue](https://github.com/yingmanwumen/BUPT_nCov_Auto_clockIn/issues/4)。 使用愉快~
